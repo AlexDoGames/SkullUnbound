@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    public GameObject Wall;
-    public GameObject WallNotion;
+    private GameObject wall;
+    private GameObject wallNotion;
+
+    private void Start()
+    {
+        wall = GetComponent<GameObject>();
+        wallNotion = GetComponent<GameObject>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown("e"))
-            Wall.GetComponent<Animator>().Play("WallAnimation");
+            wall.GetComponent<Animator>().Play("WallAnimation");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        WallNotion.SetActive(true);
+        wallNotion.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        WallNotion.SetActive(false);
+        wallNotion.SetActive(false);
     }
 }

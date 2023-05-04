@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class GroundController : MonoBehaviour
 {
-    public GameObject Ground;
-    public GameObject GroundNotion;
+    private GameObject ground;
+    private GameObject groundNotion;
+    
+    private void Start()
+    {
+        ground = GetComponent<GameObject>();
+        groundNotion = GetComponent<GameObject>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown("e"))
-            Ground.GetComponent<Animator>().Play("GroundMoveAnimation");
+            ground.GetComponent<Animator>().Play("GroundMoveAnimation");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        GroundNotion.SetActive(true);
+        groundNotion.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GroundNotion.SetActive(false);
+        groundNotion.SetActive(false);
     }
 }

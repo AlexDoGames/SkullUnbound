@@ -2,22 +2,31 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public GameObject Door;
-    public GameObject DoorNotion;
+    private GameObject woodenDoor;
+    private GameObject notion;
+
+    private void Start()
+    {
+        woodenDoor = GameObject.Find("WoodenDoor");
+        notion = GameObject.Find("Notion");
+        notion.SetActive(false);
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown("e"))
-            Door.GetComponent<Animator>().Play("DoorOpenAnimation");
+        {
+            woodenDoor.GetComponent<Animator>().Play("DoorOpenAnimation");
+        }         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        DoorNotion.SetActive(true);
+        notion.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        DoorNotion.SetActive(false);
+        notion.SetActive(false);
     }
 }

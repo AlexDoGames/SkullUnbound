@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class DragonController : MonoBehaviour
 {
-    public Transform Player;
+    private Transform player;
     private Rigidbody rb;
     private Vector3 movement;
-    public int Speed;
+    private int Speed = 2;
 
-    void Start()
+    private void Start()
     {
+        player = GameObject.Find("Skull").transform;
         rb = this.GetComponent<Rigidbody>();
     }
-    void Update()
+
+    private void Update()
     {
-        transform.LookAt(Player);
-        Vector3 direction = Player.position - transform.position;
+        transform.LookAt(player);
+        Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
         movement = direction;
@@ -24,6 +26,7 @@ public class DragonController : MonoBehaviour
     {
         MoveChar(movement);
     }
+
     private void MoveChar(Vector3 direction)
     {
         rb.MovePosition((Vector3)transform.position + (direction * Speed * Time.deltaTime));

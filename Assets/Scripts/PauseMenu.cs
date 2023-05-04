@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject PMenu;
+    private static bool GameIsPaused = false;
+    private GameObject pMenu;
+
+    private void Start()
+    {
+        pMenu = GameObject.Find("PauseMenu");
+        Resume();
+    }
 
     void Update()
     {
@@ -23,14 +29,14 @@ public class PauseMenu : MonoBehaviour
 
     void Resume()
     {
-        PMenu.SetActive(false);
+        pMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause()
     {
-        PMenu.SetActive(true);
+        pMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
