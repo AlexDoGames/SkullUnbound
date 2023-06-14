@@ -3,12 +3,13 @@ using UnityEngine;
 public class WallController : MonoBehaviour
 {
     private GameObject wall;
-    private GameObject wallNotion;
+    private GameObject notion;
 
     private void Start()
     {
-        wall = GetComponent<GameObject>();
-        wallNotion = GetComponent<GameObject>();
+        wall = GameObject.Find("MovingWall");
+        notion = GameObject.Find("Notion");
+        notion.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -19,11 +20,11 @@ public class WallController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        wallNotion.SetActive(true);
+        notion.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        wallNotion.SetActive(false);
+        notion.SetActive(false);
     }
 }

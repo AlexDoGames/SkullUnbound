@@ -3,11 +3,10 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     private static bool GameIsPaused = false;
-    private GameObject pMenu;
+    public GameObject PMenu;
 
     private void Start()
     {
-        pMenu = GameObject.Find("PauseMenu");
         Resume();
     }
 
@@ -29,14 +28,14 @@ public class PauseMenu : MonoBehaviour
 
     void Resume()
     {
-        pMenu.SetActive(false);
+        PMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause()
     {
-        pMenu.SetActive(true);
+        PMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }

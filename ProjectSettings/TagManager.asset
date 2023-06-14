@@ -7,11 +7,12 @@ TagManager:
   - DeathTrigger
   - FxTemporaire
   - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NoLight
   - Water
   - UI
   - 

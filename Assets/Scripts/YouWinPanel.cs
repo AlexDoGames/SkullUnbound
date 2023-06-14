@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class YouWinPanel : MonoBehaviour
 {
-    public GameObject YouWinMessage;
+    public GameObject YouWinText;
 
     private void OnTriggerEnter(Collider other)
     {
-        YouWinMessage.SetActive(true);
-        Time.timeScale = 0f;
+        if (other.CompareTag("Finish"))
+        {
+            YouWinText.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 }
