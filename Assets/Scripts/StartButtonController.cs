@@ -5,6 +5,7 @@ public class StartButtonController : MonoBehaviour
 {
     public void OnClick()
     {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.DeleteKey("Levels");
     }
 }

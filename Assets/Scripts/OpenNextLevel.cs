@@ -16,9 +16,9 @@ public class OpenNextLevel : MonoBehaviour
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentLevel >= PlayerPrefs.GetInt("level"))
+        if (currentLevel > PlayerPrefs.GetInt("Levels"))
         {
-            PlayerPrefs.SetInt("level", currentLevel + 1);
+            PlayerPrefs.SetInt("Levels", currentLevel);
         }
     }
 }
